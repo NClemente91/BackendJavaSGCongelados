@@ -10,8 +10,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "categories")
-@SQLDelete(sql = "UPDATE categories SET deleted = true WHERE category_id=?")
+@Table(name = "order_details")
+@SQLDelete(sql = "UPDATE order_detail SET deleted = true WHERE order_detail_id=?")
 @Where(clause = "deleted=false")
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,18 +19,21 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ApiModel(
-        value = "Category",
-        description = "Represents the data associated with categories"
+        value = "Order Detail",
+        description = "Represents the data associated with order details"
 )
-public class Category implements Serializable {
+public class OrderDetail implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "category_id")
-    private Long categoryId;
+    @Column(name = "order_detail_id")
+    private Long orderDetailId;
 
-    @Column(name = "name", nullable = false, length = 50)
-    private String name;
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity;
+
+    @Column(name = "price", nullable = false)
+    private Double price;
 
     @Column(name = "deleted", nullable = false)
     private boolean deleted = false;

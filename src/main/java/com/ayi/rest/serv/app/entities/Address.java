@@ -49,9 +49,6 @@ public class Address implements Serializable {
     @Column(name = "province", nullable = false, length = 50)
     private String province;
 
-    @Column(name = "country", nullable = false, length = 50)
-    private String country;
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

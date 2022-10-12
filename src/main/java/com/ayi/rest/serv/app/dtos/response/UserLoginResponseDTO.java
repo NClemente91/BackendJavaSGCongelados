@@ -1,13 +1,10 @@
 package com.ayi.rest.serv.app.dtos.response;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,10 +13,10 @@ import java.util.List;
 @Builder
 @ToString
 @ApiModel(
-        value = "UserResponseDTO",
-        description = "Represents the data returned for users"
+        value = "UserLoginResponseDTO",
+        description = "Represents the data returned to login user"
 )
-public class UserResponseDTO implements Serializable {
+public class UserLoginResponseDTO implements Serializable {
 
     private Long userId;
 
@@ -31,12 +28,5 @@ public class UserResponseDTO implements Serializable {
 
     @ApiModelProperty(position = 3, notes = "Email is required.")
     private String email;
-
-    @ApiModelProperty(position = 4, notes = "Date of birth is required.")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate dateOfBirth;
-
-    @ApiModelProperty(position = 5, notes = "Address list is required.")
-    private List<AddressResponseDTO> addressesList;
 
 }

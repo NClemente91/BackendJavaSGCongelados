@@ -8,6 +8,8 @@ import org.hibernate.annotations.Where;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "categories")
@@ -31,6 +33,9 @@ public class Category implements Serializable {
 
     @Column(name = "name", nullable = false, length = 50)
     private String name;
+
+    @OneToMany(mappedBy = "category")
+    private List<Product> productsList = new ArrayList<>();
 
     @Column(name = "deleted", nullable = false)
     private boolean deleted = false;

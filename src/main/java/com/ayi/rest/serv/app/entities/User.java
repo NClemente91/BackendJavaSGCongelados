@@ -2,6 +2,7 @@ package com.ayi.rest.serv.app.entities;
 
 import io.swagger.annotations.ApiModel;
 import lombok.*;
+import org.aspectj.weaver.ast.Or;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
@@ -9,6 +10,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
@@ -47,6 +50,12 @@ public class User implements Serializable {
 
     @Column(name = "is_verify", nullable = false)
     private boolean isVerify = false;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Address> addressesList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> ordersList = new ArrayList<>();
 
     @Column(name = "deleted", nullable = false)
     private boolean deleted = false;

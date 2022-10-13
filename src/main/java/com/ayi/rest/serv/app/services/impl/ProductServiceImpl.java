@@ -97,6 +97,8 @@ public class ProductServiceImpl implements IProductService {
 
         Category categoryFilter = categoryMapper.responseDtoToEntity(categoryService.findCategoryByName(category));
 
+        System.out.println(categoryFilter.getProductsList());
+
         Pageable pageable = PageRequest.of(page, size);
 
         Page<Product> productPageList = productRepository.findAllByCategory(categoryFilter, pageable);

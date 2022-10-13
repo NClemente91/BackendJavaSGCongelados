@@ -84,7 +84,44 @@ public class ProductController {
         result.setResponseCode(HttpStatus.OK.value());
         result.setStatus("SUCCESS");
         result.setMessage("OK");
-        result.setPath("/product/all");
+        result.setPath("/product/" + id);
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
+
+    }
+
+    @GetMapping(value = "/category/{category}")
+    @ApiOperation(
+            value = "Returns a list with all products by category",
+            httpMethod = "GET",
+            response = ProductResponseDTO[].class
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    code = 200,
+                    message = "Body content with information about an products list by category",
+                    response = ProductResponseDTO[].class),
+            @ApiResponse(
+                    code = 404,
+                    message = "Information about an products list by category not found")
+    })
+    public ResponseEntity<DataResponseDTO<PagesResponseDTO<ProductResponseDTO>>> findProductsByCategory(
+            @ApiParam(value = "Page to display", required = true, example = "0")
+            @RequestParam(value = "page", defaultValue = "0", required = false) Integer page,
+            @ApiParam(value = "Number of elements per page", required = true, example = "10")
+            @RequestParam(value = "size", defaultValue = "10", required = false) Integer size,
+            @ApiParam(name = "category", required = true, value = "category", example = "1")
+            @PathVariable("category") String category) {
+
+        PagesResponseDTO<ProductResponseDTO> productsList = productService.findProductsByCategory(page, size, category);
+
+        DataResponseDTO<PagesResponseDTO<ProductResponseDTO>> result = new DataResponseDTO<>();
+        result.setTimestamp(LocalDateTime.now());
+        result.setData(productsList);
+        result.setResponseCode(HttpStatus.OK.value());
+        result.setStatus("SUCCESS");
+        result.setMessage("OK");
+        result.setPath("/product/"+ category);
 
         return new ResponseEntity<>(result, HttpStatus.OK);
 

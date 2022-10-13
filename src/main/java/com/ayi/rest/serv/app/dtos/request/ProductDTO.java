@@ -41,6 +41,6 @@ public class ProductDTO implements Serializable {
 
     @ApiModelProperty(position = 6, notes = "Category is required.")
     @NotNull(message = "Cannot be null")
-    private Long categoryId;
+    private String categoryName;
 
 }

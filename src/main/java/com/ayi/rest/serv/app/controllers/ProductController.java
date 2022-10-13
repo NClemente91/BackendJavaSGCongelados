@@ -1,6 +1,5 @@
 package com.ayi.rest.serv.app.controllers;
 
-import com.ayi.rest.serv.app.dtos.request.AddressDTO;
 import com.ayi.rest.serv.app.dtos.request.ProductDTO;
 import com.ayi.rest.serv.app.dtos.response.*;
 import com.ayi.rest.serv.app.dtos.response.ProductResponseDTO;

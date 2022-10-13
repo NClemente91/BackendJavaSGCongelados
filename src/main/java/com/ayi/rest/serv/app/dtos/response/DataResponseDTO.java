@@ -1,16 +1,15 @@
 package com.ayi.rest.serv.app.dtos.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Builder
@@ -22,10 +21,11 @@ import java.util.List;
 public class DataResponseDTO<ResponseDTO> implements Serializable {
 
     @ApiModelProperty(position = 1)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "YYYY-DD-MM HH:MM:SS")
     private LocalDateTime timestamp;
 
     @ApiModelProperty(position = 2)
-    private List<ResponseDTO> data;
+    private ResponseDTO data;
 
     @ApiModelProperty(position = 3)
     private Integer responseCode;

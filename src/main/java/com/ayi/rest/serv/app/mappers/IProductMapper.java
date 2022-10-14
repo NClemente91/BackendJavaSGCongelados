@@ -8,4 +8,6 @@ public interface IProductMapper {
     ProductResponseDTO entityToResponseDto(Product entity);
 
     Product requestDtoToEntity(ProductDTO requestDto);
+
+    Product responseDtoToEntity(ProductResponseDTO responseDto);
 }

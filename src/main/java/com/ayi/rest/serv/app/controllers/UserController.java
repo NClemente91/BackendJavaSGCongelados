@@ -1,10 +1,8 @@
 package com.ayi.rest.serv.app.controllers;
 
-import com.ayi.rest.serv.app.dtos.request.ProductDTO;
 import com.ayi.rest.serv.app.dtos.request.UserLoginDTO;
 import com.ayi.rest.serv.app.dtos.request.UserRegisterDTO;
 import com.ayi.rest.serv.app.dtos.response.DataResponseDTO;
-import com.ayi.rest.serv.app.dtos.response.ProductResponseDTO;
 import com.ayi.rest.serv.app.dtos.response.UserLoginResponseDTO;
 import com.ayi.rest.serv.app.dtos.response.UserResponseDTO;
 import com.ayi.rest.serv.app.services.IUserService;

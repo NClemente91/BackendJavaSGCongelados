@@ -3,6 +3,7 @@ package com.ayi.rest.serv.app.dtos.response;
 import com.ayi.rest.serv.app.entities.Address;
 import com.ayi.rest.serv.app.entities.OrderDetail;
 import com.ayi.rest.serv.app.entities.User;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
@@ -25,12 +26,16 @@ public class OrderResponseDTO {
     private Long orderId;
 
     @ApiModelProperty(position = 1, notes = "Address is required.")
-    private AddressResponseDTO address;
+    private UserResponseDTO user;
 
-    @ApiModelProperty(position = 2, notes = "Created at is required.")
+    @ApiModelProperty(position = 2, notes = "Order detail is required.")
+    private List<OrderDetailResponseDTO> orderDetail;
+
+    @ApiModelProperty(position = 3, notes = "totalPrice detail is required.")
+    private Double totalPrice;
+
+    @ApiModelProperty(position = 4, notes = "Created at is required.")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:SS")
     private LocalDateTime created_at;
-
-    @ApiModelProperty(position = 3, notes = "Order detail is required.")
-    private List<OrderDetail> orderDetail;
 
 }

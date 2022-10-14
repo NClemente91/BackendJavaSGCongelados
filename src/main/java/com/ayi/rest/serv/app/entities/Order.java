@@ -35,8 +35,11 @@ public class Order implements Serializable {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "order")
     private List<OrderDetail> orderDetailList = new ArrayList<>();
+
+    @Column(name = "total_price")
+    private Double totalPrice;
 
     @Column(name = "deleted", nullable = false)
     private boolean deleted = false;

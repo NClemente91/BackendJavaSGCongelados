@@ -32,11 +32,7 @@ public class UserResponseDTO implements Serializable {
     @ApiModelProperty(position = 3, notes = "Email is required.")
     private String email;
 
-    @ApiModelProperty(position = 4, notes = "Date of birth is required.")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate dateOfBirth;
-
-    @ApiModelProperty(position = 5, notes = "Address list is required.")
-    private List<AddressResponseDTO> addressesList;
+    @ApiModelProperty(position = 4, notes = "Address is required.")
+    private AddressResponseDTO address;
 
 }

@@ -39,12 +39,8 @@ public class UserRegisterDTO implements Serializable {
     @NotNull(message = "Cannot be null")
     private String password;
 
-    @ApiModelProperty(position = 5, notes = "Date of birth is required.")
-    @NotNull(message = "Cannot be null")
-    private LocalDate dateOfBirth;
-
-    @ApiModelProperty(position = 6, notes = "Address is required.")
-    @NotNull(message = "Cannot be null")
+    @ApiModelProperty(position = 5, notes = "Address is required.")
+//    @NotNull(message = "Cannot be null")
     private AddressDTO address;
 
 }

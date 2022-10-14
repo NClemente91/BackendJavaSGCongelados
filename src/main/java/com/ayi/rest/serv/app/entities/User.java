@@ -45,14 +45,12 @@ public class User implements Serializable {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "date_of_birth", nullable = false)
-    private LocalDate dateOfBirth;
-
     @Column(name = "is_verify", nullable = false)
     private boolean isVerify = false;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Address> addressesList = new ArrayList<>();
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id")
+    private Address address;
 
     @OneToMany(mappedBy = "user")
     private List<Order> ordersList = new ArrayList<>();

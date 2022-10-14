@@ -40,21 +40,12 @@ public class Address implements Serializable {
     @Column(name = "apartment", length = 25)
     private String apartment;
 
-    @Column(name = "postcode", nullable = false, length = 25)
-    private String postcode;
-
     @Column(name = "city", nullable = false, length = 50)
     private String city;
 
-    @Column(name = "province", nullable = false, length = 50)
-    private String province;
-
-    @ManyToOne
+    @OneToOne(mappedBy = "address")
     @JoinColumn(name = "user_id")
     private User user;
-
-    @OneToMany(mappedBy = "address")
-    private List<Order> ordersList = new ArrayList<>();
 
     @Column(name = "deleted", nullable = false)
     private boolean deleted = false;

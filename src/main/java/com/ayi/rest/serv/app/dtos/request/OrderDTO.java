@@ -1,15 +1,9 @@
 package com.ayi.rest.serv.app.dtos.request;
 
-import com.ayi.rest.serv.app.entities.Address;
-import com.ayi.rest.serv.app.entities.OrderDetail;
-import com.ayi.rest.serv.app.entities.User;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
@@ -33,13 +27,8 @@ public class OrderDTO implements Serializable {
     @Pattern(regexp = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", message = "Invalid email")
     private String userEmail;
 
-    @ApiModelProperty(position = 2, notes = "Address Id is required.")
-    @NotNull(message = "Cannot be null")
-    private Long addressId;
-
-    @ApiModelProperty(position = 3, notes = "Cart is required.")
-    @NotNull(message = "Cannot be null")
+    @ApiModelProperty(position = 2, notes = "Cart is required.")
+//    @NotNull(message = "Cannot be null")
     private List<OrderDetailDTO> cart = new ArrayList<>();
-
 
 }

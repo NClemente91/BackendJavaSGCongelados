@@ -27,11 +27,6 @@ public class UserMapperImpl implements IUserMapper {
     }
 
     @Override
-    public User requestDtoToEntity(UserLoginDTO requestDto) {
-        return modelMapper.map(requestDto, User.class);
-    }
-
-    @Override
     public User requestDtoToEntity(UserRegisterDTO requestDto) {
         return modelMapper.map(requestDto, User.class);
     }

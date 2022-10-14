@@ -1,9 +1,7 @@
 package com.ayi.rest.serv.app.controllers;
 
 import com.ayi.rest.serv.app.dtos.request.OrderDTO;
-import com.ayi.rest.serv.app.dtos.request.ProductDTO;
 import com.ayi.rest.serv.app.dtos.response.DataResponseDTO;
-import com.ayi.rest.serv.app.dtos.response.OrderResponseDTO;
 import com.ayi.rest.serv.app.dtos.response.OrderResponseDTO;
 import com.ayi.rest.serv.app.services.IOrderService;
 import io.swagger.annotations.*;

@@ -12,8 +12,6 @@ public interface IUserMapper {
 
     UserLoginResponseDTO entityToLoginResponseDto(User entity);
 
-    User requestDtoToEntity(UserLoginDTO requestDto);
-
     User requestDtoToEntity(UserRegisterDTO requestDto);
 
 }

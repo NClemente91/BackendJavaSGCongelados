@@ -1,14 +1,9 @@
 package com.ayi.rest.serv.app.dtos.response;
 
-import com.ayi.rest.serv.app.entities.Order;
-import com.ayi.rest.serv.app.entities.Product;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @NoArgsConstructor

@@ -2,13 +2,11 @@ package com.ayi.rest.serv.app.entities;
 
 import io.swagger.annotations.ApiModel;
 import lombok.*;
-import org.aspectj.weaver.ast.Or;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;

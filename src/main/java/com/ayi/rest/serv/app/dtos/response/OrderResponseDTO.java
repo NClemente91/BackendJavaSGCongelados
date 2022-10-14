@@ -1,8 +1,5 @@
 package com.ayi.rest.serv.app.dtos.response;
 
-import com.ayi.rest.serv.app.entities.Address;
-import com.ayi.rest.serv.app.entities.OrderDetail;
-import com.ayi.rest.serv.app.entities.User;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

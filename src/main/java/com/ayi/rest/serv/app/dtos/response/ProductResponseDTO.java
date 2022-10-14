@@ -1,6 +1,5 @@
 package com.ayi.rest.serv.app.dtos.response;
 
-import com.ayi.rest.serv.app.entities.Category;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;

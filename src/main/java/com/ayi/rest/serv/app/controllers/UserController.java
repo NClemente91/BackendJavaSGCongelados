@@ -53,12 +53,12 @@ public class UserController {
         DataResponseDTO<UserLoginResponseDTO> result = new DataResponseDTO<>();
         result.setTimestamp(LocalDateTime.now());
         result.setData(userLoginResponse);
-        result.setResponseCode(HttpStatus.CREATED.value());
+        result.setResponseCode(HttpStatus.OK.value());
         result.setStatus("SUCCESS");
-        result.setMessage("CREATED");
+        result.setMessage("OK");
         result.setPath("/user/login");
 
-        return new ResponseEntity<>(result, HttpStatus.CREATED);
+        return new ResponseEntity<>(result, HttpStatus.OK);
 
     }
 

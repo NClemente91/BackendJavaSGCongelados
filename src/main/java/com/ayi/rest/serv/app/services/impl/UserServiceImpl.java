@@ -14,12 +14,12 @@ import com.ayi.rest.serv.app.repositories.IUserRepository;
 import com.ayi.rest.serv.app.services.IUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.Optional;
 
 @AllArgsConstructor
 @Service
@@ -51,7 +51,7 @@ public class UserServiceImpl implements IUserService {
 
         User userExist = findUserByEmail(user.getEmail());
 
-        if(userExist == null || !Objects.equals(user.getPassword(), userExist.getPassword())) {
+        if(userExist == null || !BCrypt.checkpw(user.getPassword(), userExist.getPassword())) {
             throw new NotFoundException("Email or password invalid");
         }
 
@@ -71,6 +71,10 @@ public class UserServiceImpl implements IUserService {
         }
 
         User userToRegister = userMapper.requestDtoToEntity(user);
+
+        String password_hash = BCrypt.hashpw(userToRegister.getPassword(), BCrypt.gensalt(10));
+        userToRegister.setPassword(password_hash);
+
         Address addressToRegister = addressMapper.requestDtoToEntity(user.getAddress());
 
         userToRegister.setAddress(addressToRegister);

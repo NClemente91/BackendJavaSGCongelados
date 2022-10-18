@@ -2,7 +2,6 @@ package com.ayi.rest.serv.app.services.impl;
 
 import com.ayi.rest.serv.app.dtos.request.UserLoginDTO;
 import com.ayi.rest.serv.app.dtos.request.UserRegisterDTO;
-import com.ayi.rest.serv.app.dtos.response.UserLoginResponseDTO;
 import com.ayi.rest.serv.app.dtos.response.UserResponseDTO;
 import com.ayi.rest.serv.app.entities.Address;
 import com.ayi.rest.serv.app.entities.User;
@@ -47,7 +46,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public UserLoginResponseDTO userLogin(UserLoginDTO user){
+    public UserResponseDTO userLogin(UserLoginDTO user){
 
         User userExist = findUserByEmail(user.getEmail());
 
@@ -55,9 +54,7 @@ public class UserServiceImpl implements IUserService {
             throw new NotFoundException("Email or password invalid");
         }
 
-        //generamos el token
-
-        return userMapper.entityToLoginResponseDto(userExist);
+        return userMapper.entityToResponseDto(userExist);
 
     }
 

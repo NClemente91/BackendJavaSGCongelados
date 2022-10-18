@@ -3,7 +3,7 @@ package com.ayi.rest.serv.app.controllers;
 import com.ayi.rest.serv.app.dtos.request.UserLoginDTO;
 import com.ayi.rest.serv.app.dtos.request.UserRegisterDTO;
 import com.ayi.rest.serv.app.dtos.response.DataResponseDTO;
-import com.ayi.rest.serv.app.dtos.response.UserLoginResponseDTO;
+import com.ayi.rest.serv.app.dtos.response.UserResponseDTO;
 import com.ayi.rest.serv.app.dtos.response.UserResponseDTO;
 import com.ayi.rest.serv.app.services.IUserService;
 import io.swagger.annotations.*;
@@ -31,24 +31,24 @@ public class UserController {
     @ApiOperation(
             value = "Returns user logged in",
             httpMethod = "POST",
-            response = UserLoginResponseDTO.class
+            response = UserResponseDTO.class
     )
     @ApiResponses(value = {
             @ApiResponse(
                     code = 201,
                     message = "Body content with information about a successfully login",
-                    response = UserLoginResponseDTO.class),
+                    response = UserResponseDTO.class),
             @ApiResponse(
                     code = 400,
                     message = "Information about a login error")
     })
-    public ResponseEntity<DataResponseDTO<UserLoginResponseDTO>> userLogin(
+    public ResponseEntity<DataResponseDTO<UserResponseDTO>> userLogin(
             @ApiParam(name = "user", required = true, value = "User")
             @Valid @RequestBody UserLoginDTO user) {
 
-        UserLoginResponseDTO userLoginResponse = userService.userLogin(user);
+        UserResponseDTO userLoginResponse = userService.userLogin(user);
 
-        DataResponseDTO<UserLoginResponseDTO> result = new DataResponseDTO<>();
+        DataResponseDTO<UserResponseDTO> result = new DataResponseDTO<>();
         result.setTimestamp(LocalDateTime.now());
         result.setData(userLoginResponse);
         result.setResponseCode(HttpStatus.OK.value());

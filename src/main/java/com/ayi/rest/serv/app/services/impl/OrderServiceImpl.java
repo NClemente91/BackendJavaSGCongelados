@@ -51,6 +51,10 @@ public class OrderServiceImpl implements IOrderService {
             throw new NotFoundException("Email does not exist");
         }
 
+        if(order.getCart().isEmpty()) {
+            throw new BadRequestException("You must add at least one product to the cart");
+        }
+
         Order orderToCreate = new Order();
 
         List<OrderDetail> orderDetailList = new ArrayList<>();

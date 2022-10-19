@@ -21,7 +21,6 @@ spring:
     init:
       mode: always
       data-locations: classpath:data.sql
-
 # Swagger settings.
 springfox:
   documentation:

@@ -52,4 +52,5 @@ public class OrderDetail implements Serializable {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+
 }

@@ -101,17 +101,6 @@ public class OrderServiceImpl implements IOrderService {
 
         return orderMapper.entityToResponseDto(orderCreated);
 
-        //Creamos la lista de order detail vacía
-
-            //Recorremos el array con un for
-            //Buscamos el producto por id (el prod existe pero verificar igual)
-            //Verificamos si qtity es menor que el stock
-            //Creamos un order detail con el producto
-            //Lo agregamos a la lista
-
-        //Seteamos la lista de order details a la orden
-        //Guardamos la orden
-
     }
 
 }
